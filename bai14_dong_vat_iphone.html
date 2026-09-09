@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Bài 14 · 动物 · Động vật</title>
+<!-- Không phụ thuộc Google Fonts: hoạt động ổn định hơn khi mở trên iPhone/iPad và khi mạng yếu. -->
+<style>
+:root{
+  --ink:#1E2A38;
+  --ink-soft:#3B4A5C;
+  --paper:#E9ECEC;
+  --paper-deep:#DCE0DF;
+  --card:#FBFBF9;
+  --line:#C6CBC7;
+  --stamp:#AA3B32;
+  --stamp-deep:#7E2A24;
+  --amber:#CE9A3E;
+  --amber-deep:#9F7527;
+  --green:#3F7A5C;
+  --green-deep:#2C5A42;
+  --shadow: 0 1px 0 rgba(30,42,56,0.06), 0 8px 20px -12px rgba(30,42,56,0.35);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:
+    linear-gradient(90deg, rgba(30,42,56,0.05) 1px, transparent 1px) 0 0/28px 28px,
+    linear-gradient(rgba(30,42,56,0.05) 1px, transparent 1px) 0 0/28px 28px,
+    var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  padding-bottom:60px;
+}
+.hanzi{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;}
+
+/* ---------- HEADER ---------- */
+header.masthead{
+  position:relative;
+  max-width:980px;
+  margin:0 auto;
+  padding:52px 32px 34px;
+  text-align:center;
+  overflow:visible;
+}
+header.masthead::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:14px;
+  transform:translateX(-50%);
+  width:120px;height:6px;
+  background:repeating-linear-gradient(90deg, var(--ink-soft) 0 8px, transparent 8px 16px);
+  opacity:.35;
+  border-radius:3px;
+}
+header.masthead .eyebrow{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  letter-spacing:.28em;
+  font-size:12px;
+  color:var(--stamp);
+  text-transform:uppercase;
+  font-weight:600;
+}
+header.masthead h1{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-weight:900;
+  font-size:clamp(38px,7vw,64px);
+  margin:10px 0 4px;
+  color:var(--ink);
+  letter-spacing:.01em;
+}
+header.masthead h2{
+  font-weight:700;
+  font-size:clamp(18px,3vw,26px);
+  margin:0 0 6px;
+  color:var(--ink-soft);
+}
+header.masthead p.sub{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:13px;
+  color:var(--ink-soft);
+  opacity:.7;
+  margin-top:10px;
+}
+
+/* Stamp overlay (signature element) */
+#stampOverlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.stamp-mark{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-weight:900;
+  color:var(--stamp);
+  border:6px solid var(--stamp);
+  border-radius:14px;
+  padding:14px 30px;
+  font-size:34px;
+  transform:rotate(-11deg) scale(2.6);
+  opacity:0;
+  background:rgba(251,251,249,0.9);
+  box-shadow:0 0 0 3px rgba(170,59,50,0.15) inset;
+}
+.stamp-mark small{
+  display:block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.15em;
+  margin-top:2px;
+}
+#stampOverlay.show .stamp-mark{
+  animation: stampDown .55s cubic-bezier(.2,1.6,.4,1) forwards;
+}
+@keyframes stampDown{
+  0%{opacity:0; transform:rotate(-11deg) scale(2.6);}
+  55%{opacity:1; transform:rotate(-11deg) scale(0.92);}
+  75%{opacity:1; transform:rotate(-11deg) scale(1.06);}
+  100%{opacity:0; transform:rotate(-11deg) scale(1);}
+}
+
+/* ---------- TABS ---------- */
+nav.tabs{
+  max-width:980px;
+  margin:0 auto 30px;
+  padding:0 24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+}
+nav.tabs button{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:14px;
+  font-weight:600;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--ink-soft);
+  padding:11px 18px 9px;
+  cursor:pointer;
+  border-radius:10px 10px 3px 3px;
+  border-bottom-width:3px;
+  transition:all .15s ease;
+}
+nav.tabs button:hover{ color:var(--ink); border-color:var(--amber);}
+nav.tabs button.active{
+  background:var(--ink);
+  color:#F4F1E8;
+  border-color:var(--ink);
+  border-bottom-color:var(--amber);
+}
+
+main{max-width:980px;margin:0 auto;padding:0 24px;}
+.panel{display:none;animation:fadeIn .35s ease;}
+.panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+.section-title{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  margin:6px 0 6px;
+}
+.section-title .num{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  color:var(--stamp);
+  font-weight:700;
+  font-size:14px;
+}
+.section-title h3{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-size:26px;
+  margin:0;
+  font-weight:700;
+}
+.section-note{
+  color:var(--ink-soft);
+  font-size:14.5px;
+  margin:0 0 22px;
+  line-height:1.55;
+  max-width:70ch;
+}
+
+/* ---------- FLASHCARDS (Khởi động) ---------- */
+.flash-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:14px;
+  margin-bottom:10px;
+}
+.flash-card{
+  perspective:800px;
+  height:170px;
+  cursor:pointer;
+}
+.flash-inner{
+  position:relative;width:100%;height:100%;
+  transition:transform .5s cubic-bezier(.4,.2,.2,1);
+  transform-style:preserve-3d;
+}
+.flash-card.flipped .flash-inner{transform:rotateY(180deg);}
+.flash-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;
+  border-radius:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:10px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+}
+.flash-front{background:var(--card);}
+.flash-front .emoji{font-size:30px;margin-bottom:6px;}
+.flash-front .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:26px;font-weight:700;}
+.flash-front .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:12px;color:var(--ink-soft);margin-top:3px;}
+.flash-back{
+  background:var(--ink);
+  color:#F4F1E8;
+  transform:rotateY(180deg);
+}
+.flash-back .nghia{font-weight:700;font-size:15px;}
+.flash-back .tip{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:10px;opacity:.6;margin-top:6px;}
+
+/* ---------- VOCAB CARDS ---------- */
+.vocab-list{display:flex;flex-direction:column;gap:10px;}
+.vocab-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--amber);
+  border-radius:8px;
+  padding:14px 18px;
+  display:grid;
+  grid-template-columns:56px 1fr auto;
+  gap:14px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+.vocab-card .stt{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  color:var(--ink-soft);
+  font-size:12px;
+  opacity:.6;
+  align-self:start;
+}
+.vocab-emoji{font-size:34px;text-align:center;}
+.vocab-main .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:28px;font-weight:700;}
+.vocab-main .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;color:var(--stamp);font-size:14px;margin-left:8px;}
+.vocab-main .meta{display:flex;gap:8px;flex-wrap:wrap;margin:5px 0 6px;align-items:center;}
+.badge{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:10.5px;
+  padding:2px 8px;
+  border-radius:20px;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.badge.hanviet{background:#EFE6D2;color:var(--amber-deep);}
+.badge.loai{background:#DCE8E1;color:var(--green-deep);}
+.vocab-main .nghia{font-weight:700;font-size:15px;}
+.vocab-main .example{font-size:13.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5;}
+.vocab-main .example .ex-hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;color:var(--ink);}
+.vocab-card button.speak{
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:50%;
+  width:38px;height:38px;
+  cursor:pointer;
+  font-size:16px;
+  align-self:center;
+}
+.vocab-card button.speak:hover{border-color:var(--stamp);}
+
+.vocab-toolbar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.vocab-toolbar input{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:9px 12px;
+  font-size:13px;
+  background:var(--card);
+  flex:1;min-width:200px;
+}
+
+/* ---------- ACTIVITY / PRACTICE ---------- */
+.activity-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px 24px;
+  margin-bottom:26px;
+  box-shadow:var(--shadow);
+}
+.activity-block h4{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-size:19px;
+  margin:0 0 4px;
+}
+.activity-block .goal{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;}
+.match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;}
+.match-item{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:8px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-size:14px;
+  transition:all .15s;
+  text-align:center;
+}
+.match-item.hanzi-item{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:19px;font-weight:700;}
+.match-item .py-sub{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:11.5px;font-weight:500;color:var(--ink-soft);margin-top:3px;letter-spacing:.02em;}
+.match-item.hanzi-item .py-sub{opacity:.75;}
+.match-item.selected{border-color:var(--stamp);background:#F3E2DF;}
+.match-item.correct{border-color:var(--green);background:#DCEEE3;color:var(--green-deep);cursor:default;}
+.match-item.wrong{animation:shake .3s;border-color:var(--stamp);}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+
+.scramble-row{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.scramble-row:last-child{border-bottom:none;}
+.chip-bank, .chip-answer{display:flex;flex-wrap:wrap;gap:8px;min-height:44px;}
+.chip-answer{
+  border:1px dashed var(--line);
+  border-radius:8px;
+  padding:8px;
+  margin-bottom:10px;
+  background:var(--paper);
+}
+.chip{
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-size:17px;
+  font-weight:600;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:6px 12px;
+  cursor:pointer;
+  text-align:center;
+}
+.chip .py-sub{display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:11px;font-weight:500;color:var(--ink-soft);margin-top:2px;opacity:.75;letter-spacing:.02em;}
+.chip:hover{border-color:var(--amber);}
+.row-controls{display:flex;gap:10px;align-items:center;margin-top:8px;}
+.row-feedback{font-size:13px;font-weight:600;}
+.row-feedback.ok{color:var(--green-deep);}
+.row-feedback.bad{color:var(--stamp-deep);}
+
+button.btn{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-weight:600;
+  font-size:12.5px;
+  border:1px solid var(--ink);
+  background:var(--ink);
+  color:#F4F1E8;
+  padding:9px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  letter-spacing:.02em;
+}
+button.btn.ghost{background:transparent;color:var(--ink);}
+button.btn:hover{opacity:.85;}
+
+/* ---------- GRAMMAR ---------- */
+.gram-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px 24px;
+  margin-bottom:20px;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.gram-card .tag{
+  position:absolute;top:-12px;left:22px;
+  background:var(--stamp);
+  color:#fff;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:11.5px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:6px;
+  letter-spacing:.05em;
+}
+.gram-card .structure{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:16px;
+  font-weight:600;
+  background:var(--paper);
+  border-radius:8px;
+  padding:10px 14px;
+  margin:10px 0 12px;
+}
+.gram-card .desc{font-size:14px;color:var(--ink-soft);margin-bottom:12px;}
+.gram-ex{font-size:14.5px;margin-bottom:8px;line-height:1.5;}
+.gram-ex .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:17px;}
+.gram-ex .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;color:var(--stamp);font-size:13px;}
+.gram-ex .vn{color:var(--ink-soft);}
+
+.fill-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:14px;font-size:15px;}
+.fill-row .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:18px;}
+select.blank{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-weight:600;
+  border:1px solid var(--amber);
+  border-radius:6px;
+  padding:4px 8px;
+  background:#FBF6EA;
+}
+.fill-result{font-size:13px;font-weight:600;margin-left:6px;}
+
+/* ---------- DIALOGUE ---------- */
+.dialogue-block{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px 24px;
+  margin-bottom:24px;
+  box-shadow:var(--shadow);
+}
+.dialogue-block h4{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:19px;margin:0 0 14px;}
+.dline{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+.dline .speaker{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-weight:700;
+  color:#fff;
+  background:var(--ink);
+  width:26px;height:26px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;flex-shrink:0;margin-top:2px;
+}
+.dline.speakerB .speaker{background:var(--stamp);}
+.dline .content{flex:1;}
+.dline .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:18px;}
+.dline .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;color:var(--ink-soft);font-size:12.5px;margin-top:2px;}
+.dline .vn{font-size:13.5px;color:var(--ink-soft);margin-top:2px;display:none;}
+.dline.show-vn .vn{display:block;}
+.dline button.speak{
+  border:none;background:transparent;cursor:pointer;font-size:16px;margin-left:6px;
+}
+.toggle-vn{margin-bottom:14px;}
+
+.mcq-item{margin-bottom:18px;}
+.mcq-q{font-size:14.5px;margin-bottom:8px;}
+.mcq-q .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:17px;}
+.mcq-options{display:flex;flex-direction:column;gap:6px;}
+.mcq-opt{
+  text-align:left;
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:8px;
+  padding:8px 12px;
+  cursor:pointer;
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;
+  font-size:15px;
+}
+.mcq-opt:hover{border-color:var(--amber);}
+.mcq-opt.correct{border-color:var(--green);background:#DCEEE3;}
+.mcq-opt.wrong{border-color:var(--stamp);background:#F3E2DF;}
+.quiz-item{
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;margin-bottom:16px;box-shadow:var(--shadow);
+}
+.quiz-item .quiz-q{margin-bottom:10px;}
+.quiz-item .quiz-q .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:17px;}
+.quiz-item .quiz-q .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;color:var(--ink-soft);font-size:12.5px;display:block;margin-top:2px;}
+.quiz-item .quiz-prompt{font-size:14px;color:var(--ink-soft);margin-top:6px;}
+.quiz-score-banner{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-weight:700;font-size:14px;
+  padding:10px 14px;border-radius:10px;background:var(--paper-deep);
+  border:1px solid var(--line);margin-bottom:16px;display:inline-block;
+}
+
+.order-block{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.order-item{
+  border:1px solid var(--line);
+  background:var(--paper);
+  border-radius:8px;
+  padding:9px 14px;
+  cursor:grab;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  font-size:14px;
+}
+.order-item .idx{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  color:var(--stamp);
+  font-weight:700;
+  font-size:12px;
+  width:16px;
+}
+.order-item.placed-correct{border-color:var(--green);background:#DCEEE3;}
+.order-item.placed-wrong{border-color:var(--stamp);}
+
+/* ---------- TRANSLATE EXERCISES ---------- */
+.tr-item{
+  border-bottom:1px dashed var(--line);
+  padding:16px 0;
+}
+.tr-item:last-child{border-bottom:none;}
+.tr-prompt{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:8px;
+  font-size:15px;
+}
+.tr-prompt .stt{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:12px;
+  color:var(--stamp);
+  font-weight:700;
+  margin-top:2px;
+}
+.tr-prompt .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:18px;}
+.tr-prompt .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:12px;color:var(--ink-soft);display:block;margin-top:2px;}
+.tr-prompt button.speak{border:none;background:transparent;cursor:pointer;font-size:15px;}
+.tr-input{
+  width:100%;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:14px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:9px 12px;
+  background:var(--paper);
+  resize:vertical;
+  min-height:40px;
+}
+.tr-controls{display:flex;align-items:center;gap:10px;margin-top:6px;}
+.tr-answer{
+  display:none;
+  margin-top:8px;
+  background:#EFE6D2;
+  border-left:4px solid var(--amber);
+  border-radius:6px;
+  padding:8px 12px;
+  font-size:14px;
+}
+.tr-answer.show{display:block;}
+.tr-answer .hz{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Noto Serif SC','Microsoft YaHei',serif;font-size:16px;}
+.tr-answer .py{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;font-size:12px;color:var(--ink-soft);}
+
+footer{
+  text-align:center;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;
+  font-size:12px;
+  color:var(--ink-soft);
+  opacity:.6;
+  margin-top:50px;
+}
+
+/* ---------- iOS / TOUCH COMPATIBILITY ---------- */
+html,body{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+button,input,textarea{
+  font:inherit;
+  -webkit-appearance:none;
+  appearance:none;
+}
+button{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+input,textarea{
+  font-size:16px; /* tránh Safari iPhone tự zoom khi chạm ô nhập */
+}
+.flash-card,.match-item,.order-chip,.mcq-opt{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+#stampOverlay{
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+@supports (-webkit-touch-callout:none){
+  .panel{
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+@media (max-width:640px){
+  .vocab-card{grid-template-columns:44px 1fr;grid-template-rows:auto auto;}
+  .vocab-card button.speak{grid-column:1/3;justify-self:start;}
+  .match-wrap{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="stampOverlay"><div class="stamp-mark">对<small>ĐÃ HOÀN THÀNH</small></div></div>
+
+<header class="masthead">
+  <div class="eyebrow">GIÁO TRÌNH TIẾNG TRUNG GIAO TIẾP · BÀI 14</div>
+  <h1 class="hanzi">动物</h1>
+  <h2>Động vật</h2>
+  <p class="sub">Dòngwù</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="warmup">📇 Khởi động</button>
+  <button class="tab" data-tab="vocab">📖 Từ mới</button>
+  <button class="tab" data-tab="practice">🎯 Ôn tập</button>
+  <button class="tab" data-tab="grammar">🧩 Ngữ pháp</button>
+  <button class="tab" data-tab="dialogue">💬 Hội thoại</button>
+  <button class="tab" data-tab="translate">✍️ Luyện dịch</button>
+  <button class="tab" data-tab="quiz">🧠 Luyện tập</button>
+</nav>
+
+<main>
+
+<!-- ================= KHỞI ĐỘNG ================= -->
+<section id="warmup" class="panel active">
+  <div class="section-title"><span class="num">00</span><h3>Khởi động — Thẻ từ vựng</h3></div>
+  <p class="section-note">Trước khi vào bài học chính thức, hãy lật từng thẻ để đoán nghĩa của từ. Nhấp vào thẻ để xem đáp án — chủ đề hôm nay là các loài động vật quen thuộc quanh ta!</p>
+  <div class="flash-grid" id="flashGrid"></div>
+</section>
+
+<!-- ================= TỪ MỚI ================= -->
+<section id="vocab" class="panel">
+  <div class="section-title"><span class="num">01</span><h3>Từ mới</h3></div>
+  <p class="section-note">25 từ vựng của Bài 14 về chủ đề động vật — mỗi thẻ gồm chữ Hán, phiên âm, âm Hán Việt, từ loại, nghĩa và một câu ví dụ. Nhấn 🔊 để nghe phát âm.</p>
+  <div class="vocab-toolbar">
+    <input type="text" id="vocabSearch" placeholder="🔍 Tìm theo chữ Hán / phiên âm / nghĩa...">
+  </div>
+  <div class="vocab-list" id="vocabList"></div>
+</section>
+
+<!-- ================= ÔN TẬP ================= -->
+<section id="practice" class="panel">
+  <div class="section-title"><span class="num">02</span><h3>Ôn tập — Hoạt động tương tác</h3></div>
+  <p class="section-note">Hai hoạt động giúp bạn khắc sâu từ vựng và cấu trúc câu vừa học.</p>
+
+  <div class="activity-block">
+    <h4>Hoạt động 1 · Ghép từ (Hán tự ↔ Nghĩa)</h4>
+    <div class="goal">Chọn một ô chữ Hán bên trái và ô nghĩa tương ứng bên phải. Ghép đúng cả 10 cặp để nhận dấu "hoàn thành".</div>
+    <div class="match-wrap" id="matchWrap"></div>
+    <div class="row-controls">
+      <button class="btn ghost" id="matchReset">↻ Làm lại</button>
+      <span class="row-feedback" id="matchScore"></span>
+    </div>
+  </div>
+
+  <div class="activity-block">
+    <h4>Hoạt động 2 · Sắp xếp câu</h4>
+    <div class="goal">Nhấp vào các từ theo đúng thứ tự để tạo thành câu hoàn chỉnh (dựa trên các cấu trúc ngữ pháp trong bài).</div>
+    <div id="scrambleWrap"></div>
+  </div>
+</section>
+
+<!-- ================= NGỮ PHÁP ================= -->
+<section id="grammar" class="panel">
+  <div class="section-title"><span class="num">03</span><h3>Ngữ pháp trọng tâm</h3></div>
+  <p class="section-note">Hai cấu trúc trọng tâm để liệt kê ví dụ (比如) và nói về lợi ích của một việc (对……有帮助), kèm bài luyện điền từ.</p>
+  <div id="grammarList"></div>
+
+  <div class="activity-block">
+    <h4>Bài luyện tập · Điền từ đúng</h4>
+    <div class="goal">Chọn 猫 / 狗 / 蛇 / 狮子 / 鱼 phù hợp để hoàn thành câu.</div>
+    <div id="fillWrap"></div>
+    <button class="btn" id="checkFill">Kiểm tra đáp án</button>
+    <span class="row-feedback" id="fillScore" style="margin-left:10px;"></span>
+  </div>
+</section>
+
+<!-- ================= HỘI THOẠI ================= -->
+<section id="dialogue" class="panel">
+  <div class="section-title"><span class="num">04</span><h3>Hội thoại</h3></div>
+  <p class="section-note">📎 <em>Ghi chú:</em> tệp tài liệu gốc không đính kèm file âm thanh, vì vậy phần nghe ở đây dùng chức năng đọc giọng nói (Text‑to‑Speech) của trình duyệt — nhấn 🔊 ở mỗi câu để luyện nghe phát âm tiếng Trung.</p>
+  <div id="dialogueList"></div>
+</section>
+
+<!-- ================= LUYỆN DỊCH ================= -->
+<section id="translate" class="panel">
+  <div class="section-title"><span class="num">05</span><h3>Luyện dịch</h3></div>
+  <p class="section-note">Vận dụng từ vựng và ngữ pháp đã học qua hai bài luyện tập: tự đặt câu tiếng Trung từ gợi ý tiếng Việt, và dịch câu tiếng Trung sang tiếng Việt. Gõ câu trả lời của bạn rồi nhấn "Xem đáp án" để đối chiếu.</p>
+
+  <div class="activity-block">
+    <h4>Bài 1 · Đặt câu (Việt → Trung)</h4>
+    <div class="goal">Đọc câu tiếng Việt, viết lại bằng tiếng Trung (chữ Hán hoặc phiên âm đều được).</div>
+    <div id="vtWrap"></div>
+  </div>
+
+  <div class="activity-block">
+    <h4>Bài 2 · Dịch câu (Trung → Việt)</h4>
+    <div class="goal">Đọc câu tiếng Trung (nhấn 🔊 để nghe), viết nghĩa tiếng Việt.</div>
+    <div id="tvWrap"></div>
+  </div>
+</section>
+
+<!-- ================= LUYỆN TẬP (QUIZ) ================= -->
+<section id="quiz" class="panel">
+  <div class="section-title"><span class="num">06</span><h3>Luyện tập tổng hợp — Trắc nghiệm ôn tập</h3></div>
+  <p class="section-note">Ngân hàng gồm nhiều câu trắc nghiệm kết hợp từ vựng, ngữ pháp Bài 14 (động vật) và ôn lại các Bài 10–13 (đồ vật/xin phép, hỏi đường, màu sắc, tiền tệ). Mỗi lượt sẽ chọn ngẫu nhiên một bộ câu hỏi và xáo trộn thứ tự đáp án — nhấn "Đổi bộ câu hỏi khác" để luyện với bộ câu hỏi mới.</p>
+
+  <div id="quizScoreBanner" class="quiz-score-banner"></div>
+  <div id="quizWrap"></div>
+
+  <div class="row-controls" style="margin-top:6px;">
+    <button class="btn ghost" id="quizReset">↻ Làm lại (giữ nguyên bộ câu)</button>
+    <button class="btn" id="quizShuffle">🔀 Đổi bộ câu hỏi khác</button>
+  </div>
+</section>
+
+</main>
+
+<footer>Bài 14 · Động vật · Tài liệu học tập tương tác</footer>
+
+<script>
+/* ===================================================================
+   DATA
+=================================================================== */
+const VOCAB = [
+{hz:"动物",py:"dòngwù",hv:"Động vật",nghia:"động vật",loai:"danh từ",emoji:"🐾",vhz:"动物是人类的朋友。",vpy:"Dòngwù shì rénlèi de péngyou.",vvn:"Động vật là bạn của con người."},
+{hz:"狗",py:"gǒu",hv:"Cẩu",nghia:"chó",loai:"danh từ",emoji:"🐕",vhz:"我家养了一只狗。",vpy:"Wǒ jiā yǎng le yì zhī gǒu.",vvn:"Nhà tôi nuôi một con chó."},
+{hz:"猫",py:"māo",hv:"Miêu",nghia:"mèo",loai:"danh từ",emoji:"🐱",vhz:"我家养了一只可爱的猫。",vpy:"Wǒ jiā yǎng le yì zhī kě'ài de māo.",vvn:"Nhà tôi nuôi một con mèo dễ thương."},
+{hz:"鸟",py:"niǎo",hv:"Điểu",nghia:"chim",loai:"danh từ",emoji:"🐦",vhz:"树上有一只小鸟。",vpy:"Shù shàng yǒu yì zhī xiǎo niǎo.",vvn:"Trên cây có một con chim nhỏ."},
+{hz:"鱼",py:"yú",hv:"Ngư",nghia:"cá",loai:"danh từ",emoji:"🐟",vhz:"今天买的鱼很新鲜。",vpy:"Jīntiān mǎi de yú hěn xīnxiān.",vvn:"Cá mua hôm nay rất tươi."},
+{hz:"牛",py:"niú",hv:"Ngưu",nghia:"bò",loai:"danh từ",emoji:"🐄",vhz:"农场里有很多牛。",vpy:"Nóngchǎng lǐ yǒu hěn duō niú.",vvn:"Trong nông trại có rất nhiều bò."},
+{hz:"猪",py:"zhū",hv:"Trư",nghia:"heo",loai:"danh từ",emoji:"🐖",vhz:"猪喜欢在泥里打滚。",vpy:"Zhū xǐhuān zài ní lǐ dǎgǔn.",vvn:"Heo thích lăn trong bùn."},
+{hz:"鸡",py:"jī",hv:"Kê",nghia:"gà",loai:"danh từ",emoji:"🐔",vhz:"妈妈每天早上喂鸡。",vpy:"Māma měitiān zǎoshang wèi jī.",vvn:"Mỗi sáng mẹ cho gà ăn."},
+{hz:"鸭",py:"yā",hv:"Áp",nghia:"vịt",loai:"danh từ",emoji:"🦆",vhz:"河里有几只鸭子。",vpy:"Hé lǐ yǒu jǐ zhī yāzi.",vvn:"Dưới sông có vài con vịt."},
+{hz:"马",py:"mǎ",hv:"Mã",nghia:"ngựa",loai:"danh từ",emoji:"🐴",vhz:"他每天骑马上班。",vpy:"Tā měitiān qí mǎ shàngbān.",vvn:"Anh ấy mỗi ngày cưỡi ngựa đi làm."},
+{hz:"羊",py:"yáng",hv:"Dương",nghia:"dê / cừu",loai:"danh từ",emoji:"🐑",vhz:"山上有很多羊。",vpy:"Shān shàng yǒu hěn duō yáng.",vvn:"Trên núi có rất nhiều dê."},
+{hz:"老鼠",py:"lǎoshǔ",hv:"Lão thử",nghia:"chuột",loai:"danh từ",emoji:"🐭",vhz:"猫很喜欢抓老鼠。",vpy:"Māo hěn xǐhuān zhuā lǎoshǔ.",vvn:"Mèo rất thích bắt chuột."},
+{hz:"兔子",py:"tùzi",hv:"Thố tử",nghia:"thỏ",loai:"danh từ",emoji:"🐰",vhz:"那只兔子很可爱。",vpy:"Nà zhī tùzi hěn kě'ài.",vvn:"Con thỏ đó rất dễ thương."},
+{hz:"蛇",py:"shé",hv:"Xà",nghia:"rắn",loai:"danh từ",emoji:"🐍",vhz:"我小时候特别怕蛇。",vpy:"Wǒ xiǎoshíhòu tèbié pà shé.",vvn:"Hồi nhỏ tôi rất sợ rắn."},
+{hz:"老虎",py:"lǎohǔ",hv:"Lão hổ",nghia:"hổ",loai:"danh từ",emoji:"🐯",vhz:"动物园里有一只老虎。",vpy:"Dòngwùyuán lǐ yǒu yì zhī lǎohǔ.",vvn:"Trong sở thú có một con hổ."},
+{hz:"狮子",py:"shīzi",hv:"Sư tử",nghia:"sư tử",loai:"danh từ",emoji:"🦁",vhz:"狮子是森林之王。",vpy:"Shīzi shì sēnlín zhī wáng.",vvn:"Sư tử là vua của rừng xanh."},
+{hz:"大象",py:"dàxiàng",hv:"Đại tượng",nghia:"voi",loai:"danh từ",emoji:"🐘",vhz:"我最喜欢大象，它看起来很温柔。",vpy:"Wǒ zuì xǐhuān dàxiàng, tā kàn qǐlái hěn wēnróu.",vvn:"Tôi thích voi nhất, trông nó rất hiền."},
+{hz:"猴子",py:"hóuzi",hv:"Hầu tử",nghia:"khỉ",loai:"danh từ",emoji:"🐒",vhz:"猴子们特别聪明。",vpy:"Hóuzimen tèbié cōngmíng.",vvn:"Những con khỉ rất thông minh."},
+{hz:"熊",py:"xióng",hv:"Hùng",nghia:"gấu",loai:"danh từ",emoji:"🐻",vhz:"熊喜欢吃蜂蜜。",vpy:"Xióng xǐhuān chī fēngmì.",vvn:"Gấu thích ăn mật ong."},
+{hz:"鹿",py:"lù",hv:"Lộc",nghia:"hươu",loai:"danh từ",emoji:"🦌",vhz:"森林里有几只鹿。",vpy:"Sēnlín lǐ yǒu jǐ zhī lù.",vvn:"Trong rừng có vài con hươu."},
+{hz:"青蛙",py:"qīngwā",hv:"Thanh oa",nghia:"ếch",loai:"danh từ",emoji:"🐸",vhz:"池塘里有很多青蛙。",vpy:"Chítáng lǐ yǒu hěn duō qīngwā.",vvn:"Trong ao có rất nhiều ếch."},
+{hz:"乌龟",py:"wūguī",hv:"Ô quy",nghia:"rùa",loai:"danh từ",emoji:"🐢",vhz:"乌龟走得很慢。",vpy:"Wūguī zǒu de hěn màn.",vvn:"Rùa đi rất chậm."},
+{hz:"蜜蜂",py:"mìfēng",hv:"Mật phong",nghia:"ong",loai:"danh từ",emoji:"🐝",vhz:"蜜蜂在花丛中飞来飞去。",vpy:"Mìfēng zài huācóng zhōng fēi lái fēi qù.",vvn:"Ong bay qua bay lại trong đám hoa."},
+{hz:"蝴蝶",py:"húdié",hv:"Hồ điệp",nghia:"bướm",loai:"danh từ",emoji:"🦋",vhz:"花园里有很多蝴蝶。",vpy:"Huāyuán lǐ yǒu hěn duō húdié.",vvn:"Trong vườn hoa có rất nhiều bướm."},
+{hz:"宠物",py:"chǒngwù",hv:"Sủng vật",nghia:"thú cưng",loai:"danh từ",emoji:"❤️",vhz:"你家有养宠物吗？",vpy:"Nǐ jiā yǒu yǎng chǒngwù ma?",vvn:"Nhà bạn có nuôi thú cưng không?"},
+];
+
+const GRAMMAR = [
+{
+  tag:"CẤU TRÚC 1",
+  structure:"…… + 比如 + VD1、VD2… (bǐrú)",
+  desc:"Nghĩa: “ví dụ như…”, “chẳng hạn như…” — dùng để liệt kê ví dụ sau một danh từ hoặc chủ đề đã nói.",
+  examples:[
+    {hz:"动物园里有很多动物，比如老虎、大象和狮子。",py:"Dòngwùyuán lǐ yǒu hěn duō dòngwù, bǐrú lǎohǔ, dàxiàng hé shīzi.",vn:"Trong sở thú có rất nhiều động vật, ví dụ như hổ, voi và sư tử."},
+    {hz:"海里有很多生物，比如鱼、虾、章鱼。",py:"Hǎi lǐ yǒu hěn duō shēngwù, bǐrú yú, xiā, zhāngyú.",vn:"Dưới biển có rất nhiều sinh vật, chẳng hạn như cá, tôm, bạch tuộc."}
+  ]
+},
+{
+  tag:"CẤU TRÚC 2",
+  structure:"对……有好处 / 有帮助 (duì… yǒu hǎochu / yǒu bāngzhù)",
+  desc:"Dùng để nói có ích / có lợi cho ai / cái gì.",
+  examples:[
+    {hz:"养宠物对心理健康有帮助。",py:"Yǎng chǒngwù duì xīnlǐ jiànkāng yǒu bāngzhù.",vn:"Nuôi thú cưng có ích cho sức khỏe tinh thần."},
+    {hz:"经常和动物接触对孩子的成长有好处。",py:"Jīngcháng hé dòngwù jiēchù duì háizi de chéngzhǎng yǒu hǎochu.",vn:"Thường xuyên tiếp xúc với động vật có lợi cho sự phát triển của trẻ em."}
+  ]
+}
+];
+
+const FILL_EXERCISES = [
+  {before:"我家养了一只很可爱的", after:"。", pyfull:"Wǒ jiā yǎng le yì zhī hěn kě'ài de ___.", vn:"Nhà tôi nuôi một con mèo rất dễ thương.", answer:"猫", options:["猫","狗","蛇","狮子","鱼"]},
+  {before:"那只", after:"每天早上都会在门口等我。", pyfull:"Nà zhī ___ měitiān zǎoshang dōu huì zài ménkǒu děng wǒ.", vn:"Con chó nhỏ đó mỗi sáng đều đợi tôi ở cửa.", answer:"狗", options:["猫","狗","蛇","狮子","鱼"]},
+  {before:"我小时候特别怕", after:"，现在还是有点害怕。", pyfull:"Wǒ xiǎoshíhòu tèbié pà ___, xiànzài háishì yǒudiǎn hàipà.", vn:"Hồi nhỏ tôi rất sợ rắn, bây giờ vẫn còn hơi sợ.", answer:"蛇", options:["猫","狗","蛇","狮子","鱼"]},
+  {before:"动物园里有很多动物，比如老虎、大象和", after:"。", pyfull:"Dòngwùyuán lǐ yǒu hěn duō dòngwù, bǐrú lǎohǔ, dàxiàng hé ___.", vn:"Trong sở thú có rất nhiều động vật, ví dụ như hổ, voi và sư tử.", answer:"狮子", options:["猫","狗","蛇","狮子","鱼"]},
+  {before:"今天市场的", after:"特别新鲜，看起来很好吃。", pyfull:"Jīntiān shìchǎng de ___ tèbié xīnxiān, kàn qǐlái hěn hǎochī.", vn:"Cá ở chợ hôm nay rất tươi, nhìn là thấy ngon rồi.", answer:"鱼", options:["猫","狗","蛇","狮子","鱼"]},
+];
+
+const SCRAMBLES = [
+  {tokens:["今天","买的鱼","很","新鲜"], pinyins:["jīntiān","mǎi de yú","hěn","xīnxiān"], vn:"Cá mua hôm nay rất tươi."},
+  {tokens:["动物","是","人类","的朋友"], pinyins:["dòngwù","shì","rénlèi","de péngyou"], vn:"Động vật là bạn của con người."},
+  {tokens:["我家","养了","一只","猫"], pinyins:["wǒjiā","yǎngle","yìzhī","māo"], vn:"Nhà tôi nuôi một con mèo."},
+  {tokens:["那只小狗","每天","等","我"], pinyins:["nà zhī xiǎo gǒu","měitiān","děng","wǒ"], vn:"Con chó nhỏ đó mỗi ngày đợi tôi."},
+  {tokens:["我","很喜欢","小动物"], pinyins:["wǒ","hěn xǐhuān","xiǎo dòngwù"], vn:"Tôi rất thích động vật nhỏ."},
+];
+
+const DIALOGUES = [
+{
+  title:"会话一 · Hội thoại 1: Nói về thú cưng trong nhà",
+  lines:[
+    {sp:"A",hz:"你家有养宠物吗？",py:"Nǐ jiā yǒu yǎng chǒngwù ma?",vn:"Nhà bạn có nuôi thú cưng không?"},
+    {sp:"B",hz:"有啊，我家养了一只猫。",py:"Yǒu a, wǒ jiā yǎng le yì zhī māo.",vn:"Có chứ, nhà tôi nuôi một con mèo."},
+    {sp:"A",hz:"它是什么颜色的？",py:"Tā shì shénme yánsè de?",vn:"Nó màu gì vậy?"},
+    {sp:"B",hz:"是白色的，看起来很干净。",py:"Shì báisè de, kàn qǐlái hěn gānjìng.",vn:"Màu trắng, trông rất sạch sẽ."},
+    {sp:"A",hz:"它乖不乖？",py:"Tā guāi bù guāi?",vn:"Nó có ngoan không?"},
+    {sp:"B",hz:"特别乖，每天都会在门口等我。",py:"Tèbié guāi, měitiān dōu huì zài ménkǒu děng wǒ.",vn:"Rất ngoan, ngày nào cũng đợi tôi ở cửa."}
+  ]
+},
+{
+  title:"会话二 · Hội thoại 2: Đi sở thú",
+  lines:[
+    {sp:"A",hz:"周末你想去哪儿玩？",py:"Zhōumò nǐ xiǎng qù nǎr wán?",vn:"Cuối tuần này bạn muốn đi đâu chơi?"},
+    {sp:"B",hz:"我想去动物园。",py:"Wǒ xiǎng qù dòngwùyuán.",vn:"Tôi muốn đi sở thú."},
+    {sp:"A",hz:"动物园里有什么动物？",py:"Dòngwùyuán lǐ yǒu shénme dòngwù?",vn:"Trong sở thú có những con vật gì?"},
+    {sp:"B",hz:"有很多，比如老虎、大象和猴子。",py:"Yǒu hěn duō, bǐrú lǎohǔ, dàxiàng hé hóuzi.",vn:"Có nhiều lắm, như hổ, voi và khỉ."},
+    {sp:"A",hz:"我最喜欢大象，它看起来很温柔。",py:"Wǒ zuì xǐhuān dàxiàng, tā kàn qǐlái hěn wēnróu.",vn:"Tôi thích voi nhất, trông nó rất hiền."},
+    {sp:"B",hz:"我也喜欢猴子，它们特别聪明。",py:"Wǒ yě xǐhuān hóuzi, tāmen tèbié cōngmíng.",vn:"Tôi cũng thích khỉ, chúng rất thông minh."}
+  ]
+},
+{
+  title:"会话三 · Hội thoại 3: Mua hải sản ở chợ",
+  lines:[
+    {sp:"A",hz:"今天市场的鱼新鲜吗？",py:"Jīntiān shìchǎng de yú xīnxiān ma?",vn:"Cá ở chợ hôm nay có tươi không?"},
+    {sp:"B",hz:"特别新鲜，看起来很好吃。",py:"Tèbié xīnxiān, kàn qǐlái hěn hǎochī.",vn:"Rất tươi, nhìn là thấy ngon rồi."},
+    {sp:"A",hz:"我最喜欢吃虾和螃蟹。",py:"Wǒ zuì xǐhuān chī xiā hé pángxiè.",vn:"Tôi thích ăn tôm và cua nhất."},
+    {sp:"B",hz:"我也喜欢，不过螃蟹太贵了。",py:"Wǒ yě xǐhuān, búguò pángxiè tài guì le.",vn:"Tôi cũng thích, nhưng cua mắc quá."},
+    {sp:"A",hz:"那买点鱼吧。",py:"Nà mǎi diǎn yú ba.",vn:"Vậy mua ít cá đi."},
+    {sp:"B",hz:"好啊。",py:"Hǎo a.",vn:"Được đó."}
+  ]
+}
+];
+
+const MCQ = [
+  {q:"你家有养宠物吗？", qpy:"Nǐ jiā yǒu yǎng chǒngwù ma?",
+   correct:"有啊，我家养了一只猫。",
+   options:["有啊，我家养了一只猫。","特别新鲜，看起来很好吃。","有很多，比如老虎、大象和猴子。"]},
+  {q:"周末你想去哪儿玩？", qpy:"Zhōumò nǐ xiǎng qù nǎr wán?",
+   correct:"我想去动物园。",
+   options:["我想去动物园。","它是什么颜色的？","那买点鱼吧。"]},
+  {q:"今天市场的鱼新鲜吗？", qpy:"Jīntiān shìchǎng de yú xīnxiān ma?",
+   correct:"特别新鲜，看起来很好吃。",
+   options:["特别新鲜，看起来很好吃。","它乖不乖？","动物园里有什么动物？"]}
+];
+
+const VT_EXERCISES = [ /* Việt → Trung: đặt câu */
+  {vn:"Bạn có thích động vật không?", hz:"你喜欢动物吗？", py:"Nǐ xǐhuān dòngwù ma?"},
+  {vn:"Tất nhiên rồi, tôi rất thích động vật.", hz:"当然啦，我很喜欢动物。", py:"Dāngrán la, wǒ hěn xǐhuān dòngwù."},
+  {vn:"Bạn thích loài nào nhất?", hz:"你最喜欢哪种动物？", py:"Nǐ zuì xǐhuān nǎ zhǒng dòngwù?"},
+  {vn:"Tôi thích mèo nhất, nó vừa dễ thương vừa yên tĩnh.", hz:"我最喜欢猫，它又可爱又安静。", py:"Wǒ zuì xǐhuān māo, tā yòu kě'ài yòu ānjìng."},
+  {vn:"Tôi lại thích chó hơn, vì nó rất nhiệt tình.", hz:"我比较喜欢狗，因为它很热情。", py:"Wǒ bǐjiào xǐhuān gǒu, yīnwèi tā hěn rèqíng."},
+  {vn:"Đúng thế, chó lúc nào cũng năng động và thích chơi với người.", hz:"是啊，狗一直很活泼，也喜欢跟人玩。", py:"Shì a, gǒu yìzhí hěn huópō, yě xǐhuān gēn rén wán."},
+  {vn:"Nhà bạn bây giờ có nuôi thú cưng không?", hz:"你家现在有养宠物吗？", py:"Nǐ jiā xiànzài yǒu yǎng chǒngwù ma?"},
+  {vn:"Có chứ, tôi nuôi một con mèo tên là \u201cMimi\u201d.", hz:"有啊，我养了一只猫，叫\u201c咪咪\u201d。", py:"Yǒu a, wǒ yǎng le yì zhī māo, jiào \u201cMīmī\u201d."},
+  {vn:"Nghe dễ thương ghê! Bạn chăm sóc nó mỗi ngày à?", hz:"听起来好可爱！你每天都照顾它吗？", py:"Tīng qǐlái hǎo kě'ài! Nǐ měitiān dōu zhàogù tā ma?"},
+  {vn:"Đúng rồi, mỗi ngày tôi đều cho nó ăn và chơi với nó.", hz:"对啊，我每天都喂它，也陪它玩。", py:"Duì a, wǒ měitiān dōu wèi tā, yě péi tā wán."},
+];
+
+const TV_EXERCISES = [ /* Trung → Việt: dịch câu */
+  {hz:"你家有养宠物吗？我家养了一只可爱的猫。", py:"Nǐ jiā yǒu yǎng chǒngwù ma? Wǒ jiā yǎng le yì zhī kě'ài de māo.", vn:"Nhà bạn có nuôi thú cưng không? Nhà tôi nuôi một con mèo rất dễ thương."},
+  {hz:"那只小狗每天早上都会在门口等我。", py:"Nà zhī xiǎo gǒu měitiān zǎoshang dōu huì zài ménkǒu děng wǒ.", vn:"Con chó nhỏ đó mỗi sáng đều đợi tôi ở trước cửa."},
+  {hz:"我小时候特别怕蛇，现在还是有点害怕。", py:"Wǒ xiǎoshíhòu tèbié pà shé, xiànzài háishì yǒudiǎn hàipà.", vn:"Hồi nhỏ tôi rất sợ rắn, bây giờ vẫn còn hơi sợ."},
+  {hz:"动物园里有很多动物，比如大象、老虎和狮子。", py:"Dòngwùyuán lǐ yǒu hěn duō dòngwù, bǐrú dàxiàng, lǎohǔ hé shīzi.", vn:"Trong sở thú có rất nhiều con vật, như voi, hổ và sư tử."},
+  {hz:"今天市场的鱼特别新鲜，看起来很好吃。", py:"Jīntiān shìchǎng de yú tèbié xīnxiān, kàn qǐlái hěn hǎochī.", vn:"Cá ở chợ hôm nay rất tươi, nhìn là thấy ngon rồi."},
+  {hz:"我最喜欢吃海鲜，尤其是虾和螃蟹。", py:"Wǒ zuì xǐhuān chī hǎixiān, yóuqí shì xiā hé pángxiè.", vn:"Tôi thích ăn hải sản nhất, đặc biệt là tôm và cua."},
+  {hz:"上次我在餐厅吃了龙虾，味道非常好。", py:"Shàng cì wǒ zài cāntīng chī le lóngxiā, wèidào fēicháng hǎo.", vn:"Lần trước tôi ăn tôm hùm ở nhà hàng, hương vị rất ngon."},
+  {hz:"鱿鱼和章鱼我都喜欢吃，它们的口感不一样。", py:"Yóuyú hé zhāngyú wǒ dōu xǐhuān chī, tāmen de kǒugǎn bù yīyàng.", vn:"Tôi thích cả mực và bạch tuộc, hai món đó có vị khác nhau."},
+  {hz:"我弟弟最喜欢去动物园看猴子和老虎。", py:"Wǒ dìdi zuì xǐhuān qù dòngwùyuán kàn hóuzi hé lǎohǔ.", vn:"Em trai tôi thích nhất là đi sở thú xem khỉ và hổ."},
+  {hz:"动物是人类的朋友。", py:"Dòngwù shì rénlèi de péngyou.", vn:"Động vật là bạn của con người."},
+];
+
+
+/* ===================================================================
+   HELPERS
+=================================================================== */
+function speak(text){
+  if(!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)){
+    alert('Thiết bị/trình duyệt này không hỗ trợ đọc phát âm tự động.');
+    return;
+  }
+  const synth = window.speechSynthesis;
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(String(text));
+  u.lang = 'zh-CN';
+  u.rate = 0.9;
+  // iPhone/iPad thường chỉ nạp danh sách giọng sau lần gọi đầu tiên.
+  const voices = synth.getVoices ? synth.getVoices() : [];
+  const zhVoice = voices.find(v => /^zh(-|_)(CN|Hans)/i.test(v.lang)) ||
+                  voices.find(v => /^zh/i.test(v.lang));
+  if(zhVoice) u.voice = zhVoice;
+  synth.speak(u);
+}
+function showStamp(){
+  const el = document.getElementById('stampOverlay');
+  el.classList.remove('show'); void el.offsetWidth; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 1300);
+}
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+/* ===================================================================
+   TABS
+=================================================================== */
+document.querySelectorAll('.tabs .tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tabs .tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+/* ===================================================================
+   KHỞI ĐỘNG — FLASHCARDS
+=================================================================== */
+const flashGrid = document.getElementById('flashGrid');
+VOCAB.forEach(v=>{
+  const card = document.createElement('div');
+  card.className='flash-card';
+  card.innerHTML=`
+    <div class="flash-inner">
+      <div class="flash-face flash-front">
+        <div class="emoji">${v.emoji}</div>
+        <div class="hz">${v.hz}</div>
+        <div class="py">${v.py}</div>
+      </div>
+      <div class="flash-face flash-back">
+        <div class="nghia">${v.nghia}</div>
+        <div class="tip">${v.hv} · ${v.loai}</div>
+      </div>
+    </div>`;
+  card.addEventListener('click', ()=>card.classList.toggle('flipped'));
+  flashGrid.appendChild(card);
+});
+
+/* ===================================================================
+   TỪ MỚI — VOCAB LIST
+=================================================================== */
+const vocabList = document.getElementById('vocabList');
+function renderVocab(filter=""){
+  vocabList.innerHTML="";
+  VOCAB.forEach((v,i)=>{
+    const hay = (v.hz+v.py+v.hv+v.nghia).toLowerCase();
+    if(filter && !hay.includes(filter.toLowerCase())) return;
+    const el = document.createElement('div');
+    el.className='vocab-card';
+    el.innerHTML=`
+      <div class="stt">${String(i+1).padStart(2,'0')}</div>
+      <div class="vocab-emoji">${v.emoji}</div>
+      <div class="vocab-main">
+        <span class="hz">${v.hz}</span><span class="py">${v.py}</span>
+        <div class="meta">
+          <span class="badge hanviet">Hán Việt: ${v.hv}</span>
+          <span class="badge loai">${v.loai}</span>
+        </div>
+        <div class="nghia">${v.nghia}</div>
+        <div class="example"><span class="ex-hz">${v.vhz}</span> ${v.vpy} → ${v.vvn}</div>
+      </div>
+      <button class="speak" title="Nghe phát âm" data-hz="${v.hz}">🔊</button>
+    `;
+    vocabList.appendChild(el);
+  });
+  vocabList.querySelectorAll('button.speak').forEach(b=>{
+    b.addEventListener('click', ()=>speak(b.dataset.hz));
+  });
+}
+renderVocab();
+document.getElementById('vocabSearch').addEventListener('input', e=>renderVocab(e.target.value));
+
+// Safari iOS: kích hoạt việc nạp danh sách giọng sau khi trang tải xong.
+if('speechSynthesis' in window){
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = ()=>window.speechSynthesis.getVoices();
+}
+
+/* ===================================================================
+   HOẠT ĐỘNG 1 — GHÉP TỪ
+=================================================================== */
+const MATCH_SET_SIZE = 10;
+let matchPairs = [];
+let matchState = {selHz:null, selNg:null, matchedCount:0};
+
+function buildMatch(){
+  matchPairs = shuffle(VOCAB).slice(0, MATCH_SET_SIZE);
+  matchState = {selHz:null, selNg:null, matchedCount:0};
+  const wrap = document.getElementById('matchWrap');
+  wrap.innerHTML="";
+  const left = document.createElement('div');
+  const right = document.createElement('div');
+  const hzOrder = shuffle(matchPairs);
+  const ngOrder = shuffle(matchPairs);
+  hzOrder.forEach(p=>{
+    const d = document.createElement('div');
+    d.className='match-item hanzi-item';
+    d.innerHTML = `${p.hz}<span class="py-sub">${p.py}</span>`;
+    d.dataset.hz = p.hz;
+    d.addEventListener('click', ()=>selectMatch(d,'hz',p.hz));
+    left.appendChild(d);
+  });
+  ngOrder.forEach(p=>{
+    const d = document.createElement('div');
+    d.className='match-item';
+    d.textContent = p.nghia;
+    d.dataset.hz = p.hz;
+    d.addEventListener('click', ()=>selectMatch(d,'ng',p.hz));
+    right.appendChild(d);
+  });
+  wrap.appendChild(left); wrap.appendChild(right);
+  document.getElementById('matchScore').textContent = "";
+}
+function selectMatch(el,side,hz){
+  if(el.classList.contains('correct')) return;
+  if(side==='hz'){
+    if(matchState.selHzEl) matchState.selHzEl.classList.remove('selected');
+    matchState.selHz = hz; matchState.selHzEl = el; el.classList.add('selected');
+  } else {
+    if(matchState.selNgEl) matchState.selNgEl.classList.remove('selected');
+    matchState.selNg = hz; matchState.selNgEl = el; el.classList.add('selected');
+  }
+  if(matchState.selHz && matchState.selNg){
+    if(matchState.selHz === matchState.selNg){
+      matchState.selHzEl.classList.add('correct'); matchState.selHzEl.classList.remove('selected');
+      matchState.selNgEl.classList.add('correct'); matchState.selNgEl.classList.remove('selected');
+      matchState.matchedCount++;
+      document.getElementById('matchScore').textContent = `${matchState.matchedCount}/${MATCH_SET_SIZE} cặp đúng`;
+      if(matchState.matchedCount === MATCH_SET_SIZE) showStamp();
+    } else {
+      matchState.selHzEl.classList.add('wrong'); matchState.selNgEl.classList.add('wrong');
+      setTimeout(()=>{
+        matchState.selHzEl.classList.remove('wrong','selected');
+        matchState.selNgEl.classList.remove('wrong','selected');
+      },350);
+    }
+    matchState.selHz=null; matchState.selNg=null; matchState.selHzEl=null; matchState.selNgEl=null;
+  }
+}
+document.getElementById('matchReset').addEventListener('click', buildMatch);
+buildMatch();
+
+/* ===================================================================
+   HOẠT ĐỘNG 2 — SẮP XẾP CÂU
+=================================================================== */
+const scrambleWrap = document.getElementById('scrambleWrap');
+SCRAMBLES.forEach((s, idx)=>{
+  const row = document.createElement('div');
+  row.className='scramble-row';
+  const tokenPairs = s.tokens.map((tok,i)=>({tok, py:(s.pinyins&&s.pinyins[i])||''}));
+  const bank = shuffle(tokenPairs);
+  row.innerHTML = `
+    <div class="chip-answer" id="ans-${idx}"></div>
+    <div class="chip-bank" id="bank-${idx}"></div>
+    <div class="row-controls">
+      <button class="btn ghost" data-idx="${idx}" data-act="reset">↻ Xóa</button>
+      <button class="btn" data-idx="${idx}" data-act="check">Kiểm tra</button>
+      <span class="row-feedback" id="fb-${idx}"></span>
+    </div>
+  `;
+  scrambleWrap.appendChild(row);
+  const bankEl = row.querySelector(`#bank-${idx}`);
+  const ansEl = row.querySelector(`#ans-${idx}`);
+  function makeChip(pair){
+    const c = document.createElement('div');
+    c.className='chip';
+    c.dataset.hz = pair.tok;
+    c.innerHTML = `${pair.tok}${pair.py?`<span class="py-sub">${pair.py}</span>`:''}`;
+    c.addEventListener('click', ()=>{
+      c.remove();
+      ansEl.appendChild(c);
+      c.onclick = ()=>{ c.remove(); bankEl.appendChild(c); c.onclick=null; makeChipClickable(c, bankEl); };
+    });
+    return c;
+  }
+  function makeChipClickable(c, targetOnClickBank){
+    c.addEventListener('click', ()=>{
+      c.remove();
+      ansEl.appendChild(c);
+    });
+  }
+  bank.forEach(pair=>bankEl.appendChild(makeChip(pair)));
+
+  row.querySelector('[data-act="reset"]').addEventListener('click', ()=>{
+    bankEl.innerHTML=''; ansEl.innerHTML='';
+    shuffle(tokenPairs).forEach(pair=>bankEl.appendChild(makeChip(pair)));
+    document.getElementById(`fb-${idx}`).textContent='';
+    document.getElementById(`fb-${idx}`).className='row-feedback';
+  });
+  row.querySelector('[data-act="check"]').addEventListener('click', ()=>{
+    const built = Array.from(ansEl.children).map(c=>c.dataset.hz).join('');
+    const correct = s.tokens.join('');
+    const fb = document.getElementById(`fb-${idx}`);
+    if(built === correct){
+      fb.textContent = `✓ Chính xác — ${correct} (${s.vn})`;
+      fb.className='row-feedback ok';
+      showStamp();
+    } else {
+      fb.textContent = `✗ Chưa đúng, thử lại nhé.`;
+      fb.className='row-feedback bad';
+    }
+  });
+});
+
+/* ===================================================================
+   NGỮ PHÁP
+=================================================================== */
+const grammarList = document.getElementById('grammarList');
+GRAMMAR.forEach(g=>{
+  const card = document.createElement('div');
+  card.className='gram-card';
+  card.innerHTML = `
+    <div class="tag">${g.tag}</div>
+    <div class="structure">${g.structure}</div>
+    <div class="desc">${g.desc}</div>
+    ${g.examples.map(e=>`<div class="gram-ex"><span class="hz">${e.hz}</span> <span class="py">${e.py}</span><br><span class="vn">→ ${e.vn}</span></div>`).join("")}
+  `;
+  grammarList.appendChild(card);
+});
+
+const VOCAB_PY_MAP = {};
+VOCAB.forEach(v=>{ VOCAB_PY_MAP[v.hz]=v.py; });
+
+const fillWrap = document.getElementById('fillWrap');
+FILL_EXERCISES.forEach((f,idx)=>{
+  const row = document.createElement('div');
+  row.className='fill-row';
+  row.style.flexDirection='column';
+  row.style.alignItems='flex-start';
+  row.innerHTML = `
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;">
+      <span class="hz">${f.before}</span>
+      <select class="blank" id="fill-${idx}">
+        <option value="">--</option>
+        ${f.options.map(o=>`<option value="${o}">${o}（${VOCAB_PY_MAP[o]||''}）</option>`).join("")}
+      </select>
+      <span class="hz">${f.after}</span>
+      <span class="fill-result" id="fill-result-${idx}"></span>
+    </div>
+    <div class="py mono" style="color:var(--ink-soft);font-size:12.5px;margin-top:2px;">${f.pyfull}</div>
+    <div style="color:var(--ink-soft);font-size:13px;">→ ${f.vn}</div>
+  `;
+  fillWrap.appendChild(row);
+});
+document.getElementById('checkFill').addEventListener('click', ()=>{
+  let correctCount = 0;
+  FILL_EXERCISES.forEach((f,idx)=>{
+    const sel = document.getElementById(`fill-${idx}`);
+    const res = document.getElementById(`fill-result-${idx}`);
+    if(sel.value === f.answer){ res.textContent='✓'; res.style.color='var(--green-deep)'; correctCount++; }
+    else { res.textContent=`✗ (đáp án: ${f.answer})`; res.style.color='var(--stamp-deep)'; }
+  });
+  const scoreEl = document.getElementById('fillScore');
+  scoreEl.textContent = `${correctCount}/${FILL_EXERCISES.length} câu đúng`;
+  scoreEl.style.color = correctCount===FILL_EXERCISES.length ? 'var(--green-deep)' : 'var(--stamp-deep)';
+  if(correctCount===FILL_EXERCISES.length) showStamp();
+});
+
+/* ===================================================================
+   HỘI THOẠI
+=================================================================== */
+const dialogueList = document.getElementById('dialogueList');
+
+DIALOGUES.forEach((d, dIdx)=>{
+  const block = document.createElement('div');
+  block.className='dialogue-block';
+  let linesHtml = "";
+  d.lines.forEach(l=>{
+    linesHtml += `
+      <div class="dline ${l.sp==='B'?'speakerB':''}">
+        <div class="speaker">${l.sp}</div>
+        <div class="content">
+          <span class="hz">${l.hz}</span><button class="speak" data-hz="${l.hz}">🔊</button>
+          <div class="py">${l.py}</div>
+          <div class="vn">→ ${l.vn}</div>
+        </div>
+      </div>`;
+  });
+  block.innerHTML = `
+    <h4>${d.title}</h4>
+    <label class="toggle-vn"><input type="checkbox" class="vn-toggle" data-idx="${dIdx}"> Hiện nghĩa tiếng Việt</label>
+    <div class="dlines" id="dlines-${dIdx}">${linesHtml}</div>
+  `;
+  dialogueList.appendChild(block);
+});
+
+dialogueList.querySelectorAll('button.speak').forEach(b=>{
+  b.addEventListener('click', ()=>speak(b.dataset.hz));
+});
+dialogueList.querySelectorAll('.vn-toggle').forEach(cb=>{
+  cb.addEventListener('change', ()=>{
+    const idx = cb.dataset.idx;
+    document.querySelectorAll(`#dlines-${idx} .dline`).forEach(l=>l.classList.toggle('show-vn', cb.checked));
+  });
+});
+
+/* Activity: Sắp xếp lại Hội thoại 2 */
+const orderActivity = document.createElement('div');
+orderActivity.className='activity-block';
+orderActivity.innerHTML = `
+  <h4>Hoạt động luyện tập · Sắp xếp lại 课文二 (Bài khóa 2)</h4>
+  <div class="goal">Nhấp vào từng câu để đưa vào đúng thứ tự hội thoại. Nhấn "Kiểm tra" để xem kết quả.</div>
+  <div id="orderBank" class="chip-bank" style="margin-bottom:12px;"></div>
+  <div id="orderAnswer" class="order-block"></div>
+  <div class="row-controls">
+    <button class="btn ghost" id="orderReset">↻ Làm lại</button>
+    <button class="btn" id="orderCheck">Kiểm tra</button>
+    <span class="row-feedback" id="orderFb"></span>
+  </div>
+`;
+dialogueList.appendChild(orderActivity);
+
+const dialogue2Lines = DIALOGUES[1].lines;
+function buildOrderActivity(){
+  const bank = document.getElementById('orderBank');
+  const answer = document.getElementById('orderAnswer');
+  bank.innerHTML=''; answer.innerHTML='';
+  document.getElementById('orderFb').textContent='';
+  const shuffled = shuffle(dialogue2Lines);
+  shuffled.forEach(line=>{
+    const chip = document.createElement('div');
+    chip.className='chip';
+    chip.innerHTML = `<b>${line.sp}:</b> ${line.hz}<br><span class="mono" style="font-size:11px;color:var(--ink-soft);font-weight:400;">${line.py}</span>`;
+    chip.addEventListener('click', ()=>{
+      chip.remove();
+      const item = document.createElement('div');
+      item.className='order-item';
+      item.innerHTML = `<span class="idx"></span><span><b>${line.sp}:</b> ${line.hz}<br><span class="mono" style="font-size:11px;color:var(--ink-soft);font-weight:400;">${line.py}</span></span>`;
+      item.dataset.hz = line.hz;
+      answer.appendChild(item);
+      renumber();
+    });
+    bank.appendChild(chip);
+  });
+}
+function renumber(){
+  document.querySelectorAll('#orderAnswer .order-item').forEach((it,i)=>{
+    it.querySelector('.idx').textContent = i+1;
+  });
+}
+document.getElementById('orderReset').addEventListener('click', buildOrderActivity);
+document.getElementById('orderCheck').addEventListener('click', ()=>{
+  const items = Array.from(document.querySelectorAll('#orderAnswer .order-item'));
+  let allCorrect = items.length === dialogue2Lines.length;
+  items.forEach((it,i)=>{
+    const ok = dialogue2Lines[i] && dialogue2Lines[i].hz === it.dataset.hz;
+    it.classList.toggle('placed-correct', ok);
+    it.classList.toggle('placed-wrong', !ok);
+    if(!ok) allCorrect = false;
+  });
+  const fb = document.getElementById('orderFb');
+  if(allCorrect){ fb.textContent='✓ Chính xác! Bạn đã sắp xếp đúng thứ tự.'; fb.className='row-feedback ok'; showStamp(); }
+  else { fb.textContent='✗ Thứ tự chưa đúng, thử lại nhé.'; fb.className='row-feedback bad'; }
+});
+buildOrderActivity();
+
+/* Activity: MCQ luyện phản xạ hội thoại 3 */
+const mcqActivity = document.createElement('div');
+mcqActivity.className='activity-block';
+mcqActivity.innerHTML = `
+  <h4>Hoạt động luyện tập · Chọn câu trả lời đúng (课文三)</h4>
+  <div class="goal">Đọc câu hỏi của A, chọn câu trả lời phù hợp nhất của B.</div>
+  <div id="mcqWrap"></div>
+`;
+dialogueList.appendChild(mcqActivity);
+
+const HZ_PY_MAP = {};
+DIALOGUES.forEach(d=>d.lines.forEach(l=>{ HZ_PY_MAP[l.hz]=l.py; }));
+
+const mcqWrap = document.getElementById('mcqWrap');
+MCQ.forEach((m, idx)=>{
+  const item = document.createElement('div');
+  item.className='mcq-item';
+  const opts = shuffle(m.options);
+  item.innerHTML = `
+    <div class="mcq-q"><b>A:</b> <span class="hz">${m.q}</span><br><span class="py" style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation Mono',monospace;color:var(--ink-soft);font-size:12.5px;">${m.qpy}</span></div>
+    <div class="mcq-options" id="mcq-opts-${idx}"></div>
+  `;
+  mcqWrap.appendChild(item);
+  const optWrap = item.querySelector(`#mcq-opts-${idx}`);
+  opts.forEach(o=>{
+    const b = document.createElement('button');
+    b.className='mcq-opt';
+    b.innerHTML = `<b>B:</b> ${o}<br><span class="mono" style="font-size:11px;color:var(--ink-soft);">${HZ_PY_MAP[o]||''}</span>`;
+    b.addEventListener('click', ()=>{
+      const buttons = optWrap.querySelectorAll('.mcq-opt');
+      buttons.forEach(x=>x.disabled=true);
+      if(o === m.correct){ b.classList.add('correct'); showStamp(); }
+      else {
+        b.classList.add('wrong');
+        buttons.forEach(x=>{ if(x.dataset.hz === m.correct) x.classList.add('correct'); });
+      }
+    });
+    b.dataset.hz = o;
+    optWrap.appendChild(b);
+  });
+});
+
+/* ===================================================================
+   LUYỆN DỊCH — Bài 1 (Việt → Trung) & Bài 2 (Trung → Việt)
+=================================================================== */
+const vtWrap = document.getElementById('vtWrap');
+VT_EXERCISES.forEach((ex, idx)=>{
+  const item = document.createElement('div');
+  item.className='tr-item';
+  item.innerHTML = `
+    <div class="tr-prompt">
+      <span class="stt">${idx+1}.</span>
+      <span>${ex.vn}</span>
+    </div>
+    <textarea class="tr-input" placeholder="Viết câu tiếng Trung của bạn ở đây (chữ Hán hoặc phiên âm)..." id="vt-input-${idx}"></textarea>
+    <div class="tr-controls">
+      <button class="btn ghost" data-idx="${idx}">👁 Xem đáp án</button>
+    </div>
+    <div class="tr-answer" id="vt-answer-${idx}">
+      <span class="hz">${ex.hz}</span><button class="speak" data-hz="${ex.hz}">🔊</button>
+      <span class="py">${ex.py}</span>
+    </div>
+  `;
+  vtWrap.appendChild(item);
+});
+vtWrap.querySelectorAll('button.btn.ghost').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const idx = b.dataset.idx;
+    const ans = document.getElementById(`vt-answer-${idx}`);
+    ans.classList.toggle('show');
+    b.textContent = ans.classList.contains('show') ? '🙈 Ẩn đáp án' : '👁 Xem đáp án';
+  });
+});
+vtWrap.querySelectorAll('button.speak').forEach(b=>{
+  b.addEventListener('click', ()=>speak(b.dataset.hz));
+});
+
+const tvWrap = document.getElementById('tvWrap');
+TV_EXERCISES.forEach((ex, idx)=>{
+  const item = document.createElement('div');
+  item.className='tr-item';
+  item.innerHTML = `
+    <div class="tr-prompt">
+      <span class="stt">${idx+1}.</span>
+      <div>
+        <span class="hz">${ex.hz}</span><button class="speak" data-hz="${ex.hz}">🔊</button>
+        <span class="py">${ex.py}</span>
+      </div>
+    </div>
+    <textarea class="tr-input" placeholder="Viết nghĩa tiếng Việt của câu trên..." id="tv-input-${idx}"></textarea>
+    <div class="tr-controls">
+      <button class="btn ghost" data-idx="${idx}">👁 Xem đáp án</button>
+    </div>
+    <div class="tr-answer" id="tv-answer-${idx}">${ex.vn}</div>
+  `;
+  tvWrap.appendChild(item);
+});
+tvWrap.querySelectorAll('button.speak').forEach(b=>{
+  b.addEventListener('click', ()=>speak(b.dataset.hz));
+});
+tvWrap.querySelectorAll('button.btn.ghost').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const idx = b.dataset.idx;
+    const ans = document.getElementById(`tv-answer-${idx}`);
+    ans.classList.toggle('show');
+    b.textContent = ans.classList.contains('show') ? '🙈 Ẩn đáp án' : '👁 Xem đáp án';
+  });
+});
+
+/* ===================================================================
+   LUYỆN TẬP TỔNG HỢP — Ngân hàng câu hỏi Bài 14 + ôn tập Bài 10-13
+=================================================================== */
+const QUIZ_BANK = [
+  // ----- Bài 14: Động vật -----
+  {hz:"你家有养宠物吗？", py:"Nǐ jiā yǒu yǎng chǒngwù ma?", prompt:"Câu này dùng để hỏi:",
+   options:["Nhà bạn ở đâu","Nhà bạn có nuôi thú cưng không","Bạn thích con vật nào"], correct:"Nhà bạn có nuôi thú cưng không"},
+  {hz:"我家养了一只猫。", py:"Wǒ jiā yǎng le yì zhī māo.", prompt:"Nghĩa là:",
+   options:["Nhà tôi nuôi một con chó","Nhà tôi nuôi một con mèo","Nhà tôi có một con chim"], correct:"Nhà tôi nuôi một con mèo"},
+  {hz:"动物园里有很多动物，比如老虎、大象和狮子。", py:"Dòngwùyuán lǐ yǒu hěn duō dòngwù, bǐrú lǎohǔ, dàxiàng hé shīzi.", prompt:"“比如” trong câu này có nghĩa là:",
+   options:["Bởi vì","Ví dụ như","Nhưng mà"], correct:"Ví dụ như"},
+  {hz:"养宠物对心理健康有帮助。", py:"Yǎng chǒngwù duì xīnlǐ jiànkāng yǒu bāngzhù.", prompt:"Nghĩa là:",
+   options:["Nuôi thú cưng tốn nhiều tiền","Nuôi thú cưng có ích cho sức khỏe tinh thần","Nuôi thú cưng rất khó"], correct:"Nuôi thú cưng có ích cho sức khỏe tinh thần"},
+  {hz:"我最喜欢大象，它看起来很温柔。", py:"Wǒ zuì xǐhuān dàxiàng, tā kàn qǐlái hěn wēnróu.", prompt:"Người nói thích:",
+   options:["Con hổ, vì nó mạnh mẽ","Con voi, vì nó hiền","Con khỉ, vì nó thông minh"], correct:"Con voi, vì nó hiền"},
+  {hz:"我最喜欢吃海鲜，尤其是虾和螃蟹。", py:"Wǒ zuì xǐhuān chī hǎixiān, yóuqí shì xiā hé pángxiè.", prompt:"Nghĩa là:",
+   options:["Tôi ghét hải sản","Tôi thích ăn hải sản, nhất là tôm và cua","Tôi chỉ thích ăn cá"], correct:"Tôi thích ăn hải sản, nhất là tôm và cua"},
+  {hz:"我不太喜欢吃螺，因为味道有点重。", py:"Wǒ bù tài xǐhuān chī luó, yīnwèi wèidào yǒudiǎn zhòng.", prompt:"Nghĩa là:",
+   options:["Tôi rất thích ăn ốc","Tôi không thích ăn ốc lắm vì mùi hơi nặng","Tôi chưa từng ăn ốc"], correct:"Tôi không thích ăn ốc lắm vì mùi hơi nặng"},
+  {hz:"动物是人类的朋友。", py:"Dòngwù shì rénlèi de péngyou.", prompt:"Nghĩa là:",
+   options:["Động vật là kẻ thù của con người","Động vật là bạn của con người","Con người sợ động vật"], correct:"Động vật là bạn của con người"},
+  {hz:"我弟弟最喜欢去动物园看猴子和老虎。", py:"Wǒ dìdi zuì xǐhuān qù dòngwùyuán kàn hóuzi hé lǎohǔ.", prompt:"Em trai của người nói thích xem:",
+   options:["Khỉ và hổ ở sở thú","Cá ở chợ","Chó ở nhà"], correct:"Khỉ và hổ ở sở thú"},
+  // ----- Ôn tập Bài 10: đồ vật / xin phép -----
+  {hz:"我能坐这儿吗？", py:"Wǒ néng zuò zhèr ma?", prompt:"Nghĩa là:",
+   options:["Tôi có thể ngồi đây không","Ở đây có ai không","Bạn có ghế không"], correct:"Tôi có thể ngồi đây không"},
+  {hz:"桌子上有一本书。", py:"Zhuōzi shàng yǒu yī běn shū.", prompt:"Nghĩa là:",
+   options:["Trên bàn có một quyển sách","Trong bàn có một quyển sách","Dưới bàn có một quyển sách"], correct:"Trên bàn có một quyển sách"},
+  // ----- Ôn tập Bài 11: hỏi đường -----
+  {hz:"请问，地铁站在哪里？", py:"Qǐngwèn, dìtiě zhàn zài nǎlǐ?", prompt:"Câu này dùng để:",
+   options:["Giới thiệu bản thân","Hỏi vị trí ga tàu điện ngầm","Hỏi giá vé tàu"], correct:"Hỏi vị trí ga tàu điện ngầm"},
+  {hz:"往前走，过红绿灯，然后左拐。", py:"Wǎng qián zǒu, guò hónglǜdēng, ránhòu zuǒ guǎi.", prompt:"Nghĩa là:",
+   options:["Đi thẳng, qua đèn giao thông rồi rẽ trái","Rẽ phải trước khi tới đèn giao thông","Dừng lại ở đèn giao thông"], correct:"Đi thẳng, qua đèn giao thông rồi rẽ trái"},
+  // ----- Ôn tập Bài 12: màu sắc -----
+  {hz:"这个颜色看起来很舒服。", py:"Zhège yánsè kàn qǐlái hěn shūfu.", prompt:"Nghĩa là:",
+   options:["Màu này nhìn rất khó chịu","Màu này nhìn rất dễ chịu","Màu này rất đắt"], correct:"Màu này nhìn rất dễ chịu"},
+  {hz:"白色比较干净。", py:"Báisè bǐjiào gānjìng.", prompt:"Nghĩa là:",
+   options:["Màu trắng khá bẩn","Màu trắng khá đắt","Màu trắng khá sạch sẽ"], correct:"Màu trắng khá sạch sẽ"},
+  // ----- Ôn tập Bài 13: tiền tệ -----
+  {hz:"一共多少钱？", py:"Yí gòng duōshao qián?", prompt:"Câu này dùng để hỏi:",
+   options:["Giá rẻ hay đắt","Tổng cộng bao nhiêu tiền","Trả tiền bằng cách nào"], correct:"Tổng cộng bao nhiêu tiền"},
+  {hz:"这个太贵了。", py:"Zhège tài guì le.", prompt:"Nghĩa là:",
+   options:["Cái này rẻ quá","Cái này vừa tiền","Cái này đắt quá"], correct:"Cái này đắt quá"},
+];
+
+
+const QUIZ_SET_SIZE = 8;
+function pickQuizSet(){
+  return shuffle(QUIZ_BANK).slice(0, QUIZ_SET_SIZE);
+}
+
+let currentQuizSet = pickQuizSet();
+let quizAnswered = new Array(currentQuizSet.length).fill(null);
+
+function renderQuiz(){
+  const wrap = document.getElementById('quizWrap');
+  wrap.innerHTML = '';
+  currentQuizSet.forEach((q, idx)=>{
+    const item = document.createElement('div');
+    item.className = 'quiz-item';
+    item.innerHTML = `
+      <div class="quiz-q">
+        <span class="hz">${idx+1}. ${q.hz}</span> <button class="speak" data-hz="${q.hz}" style="border:none;background:none;cursor:pointer;">🔊</button>
+        <span class="py mono">${q.py}</span>
+        <div class="quiz-prompt">${q.prompt}</div>
+      </div>
+      <div class="mcq-options" id="quiz-opts-${idx}"></div>
+    `;
+    wrap.appendChild(item);
+    item.querySelector('button.speak').addEventListener('click', ()=>speak(q.hz));
+
+    const optWrap = item.querySelector(`#quiz-opts-${idx}`);
+    const shuffledOpts = shuffle(q.options);
+    shuffledOpts.forEach((optText, oi)=>{
+      const label = String.fromCharCode(65+oi); // A, B, C...
+      const b = document.createElement('button');
+      b.className = 'mcq-opt';
+      b.textContent = `${label}. ${optText}`;
+      if(quizAnswered[idx]){
+        b.disabled = true;
+        if(optText === q.correct) b.classList.add('correct');
+        if(optText === quizAnswered[idx] && optText !== q.correct) b.classList.add('wrong');
+      }
+      b.addEventListener('click', ()=>{
+        if(quizAnswered[idx]) return;
+        quizAnswered[idx] = optText;
+        if(optText === q.correct) showStamp();
+        renderQuiz();
+      });
+      optWrap.appendChild(b);
+    });
+  });
+  updateQuizScoreBanner();
+}
+
+function updateQuizScoreBanner(){
+  const answered = quizAnswered.filter(a=>a!==null).length;
+  const correct = quizAnswered.reduce((acc,a,i)=> acc + (a===currentQuizSet[i].correct ? 1 : 0), 0);
+  const banner = document.getElementById('quizScoreBanner');
+  if(answered===0){
+    banner.textContent = `Bộ câu hỏi: ${currentQuizSet.length} câu · Điểm: 0/${currentQuizSet.length}`;
+  } else if(answered===currentQuizSet.length){
+    banner.textContent = `🏁 Hoàn thành! Điểm: ${correct}/${currentQuizSet.length}`;
+  } else {
+    banner.textContent = `Đã trả lời: ${answered}/${currentQuizSet.length} · Đúng: ${correct}`;
+  }
+}
+
+document.getElementById('quizReset').addEventListener('click', ()=>{
+  quizAnswered = new Array(currentQuizSet.length).fill(null);
+  renderQuiz();
+});
+document.getElementById('quizShuffle').addEventListener('click', ()=>{
+  currentQuizSet = pickQuizSet();
+  quizAnswered = new Array(currentQuizSet.length).fill(null);
+  renderQuiz();
+});
+
+renderQuiz();
+</script>
+</body>
+</html>
